@@ -10,6 +10,8 @@ TestHello.java
 TestRecursion.java
 exampe.txt
 stack.png
+StackQueueEx.java
+Stack.java
 
 # all .class files 
 *.class
