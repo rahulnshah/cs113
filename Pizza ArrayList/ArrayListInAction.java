@@ -12,7 +12,7 @@ public class ArrayListInAction{
      myorders.addOne(p3);
      myorders.addOne(p4);
      
-     System.out.println(myorders.getOrderList());
+     System.out.println(myorders.getOrderList() + " ");
                 
 
     }

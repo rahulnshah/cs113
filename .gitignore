@@ -1,0 +1,15 @@
+# files I want to be not under untracked label of git
+Example1.java
+ExampleRecursion.java
+IntList.java
+MyFxApp.java
+Node.java
+ParseInts.java
+SortedList.java
+TestHello.java
+TestRecursion.java
+exampe.txt
+stack.png
+
+# all .class files 
+*.class
