@@ -57,15 +57,15 @@ public class GoodJavaCodeSnippets{
    }
    public static void compareStrings(String s1, String s2)
    {   
-         if (s1.compareTo(s2) < 0){
-            System.out.println(s1 + " comes before " + s2 + ": " + s1 + " " + s2);
-         }
-         else if (s1.compareTo(s2) > 0){
-            System.out.println(s1 + " comes after " + s2 + ": " + s2 + " " + s1);
-         }
-         else{
-            System.out.print(s1 + " and " + s2 + " are the same ");
-         }
+      if (s1.compareTo(s2) < 0){
+         System.out.println(s1 + " comes before " + s2 + ": " + s1 + " " + s2);
+      }
+      else if (s1.compareTo(s2) > 0){
+         System.out.println(s1 + " comes after " + s2 + ": " + s2 + " " + s1);
+      }
+      else{
+         System.out.print(s1 + " and " + s2 + " are the same ");
+      }
    }
    public static String switchAdjacentCharsOf(String str)
    {
@@ -82,32 +82,6 @@ public class GoodJavaCodeSnippets{
       }
       return str_temp;
    }
-   public static void printHistogram(int n)
-   {
-      
-         int [] a = new int[n];
-         //System.out.print(a[0]);
-         int randNum;
-         
-         Random gen = new Random();
-         
-         for(int i = 0; i < a.length; i++)
-         {
-            randNum = gen.nextInt(n * 10) + 1;
-            a[randNum/10] =  a[randNum/10] + 1;
-            System.out.println(randNum + " " + a[randNum/10]);
-         }
-         
-         for(int i = 0; i < a.length; i++)
-         {
-            System.out.print(i + " ");
-            for(int j = 0; j < a[i]; j++)
-            {
-               System.out.print("*" + " ");
-            }
-            System.out.println("");
-         }
-   }
    public static void printNums(int factor, int ... numList)
    {
       for(int i = 0; i < numList.length; i++)
@@ -118,7 +92,7 @@ public class GoodJavaCodeSnippets{
    public static void addElementInArray(int i, int num, int [] arr)
    {
       
-// add an element into an array 
+   // add an element into an array 
       int [] a = new int[arr.length + 1];
       
       //add all the original numbers in prev to array a and stop at index i 
@@ -139,13 +113,14 @@ public class GoodJavaCodeSnippets{
          i++;
       }
       arr = a;
+      System.out.println(java.util.Arrays.toString(arr));
       
    }
    public static int findSum(int [] a, int n, int m)
    {
       if(n > m) //false when n = m, so return a[n]
       {
-         return a[n - 1] + findSum(a, n - 1, m);
+         return a[n] + findSum(a, n - 1, m);
       }
       return a[n];
    }
@@ -191,244 +166,56 @@ public class GoodJavaCodeSnippets{
       } 
    }
    public static int findNumOfOccurences(String str, String phrase)
-  {
-    if(str.indexOf(phrase) >= 0)
-    {
-        return 1 + findNumOfOccurences(str.substring(str.indexOf(phrase) + phrase.length()), phrase);//adding the indexOf(ph..) and ph...length() does not skip any leetrs
-    }
-    return 0; 
-  }
-   public static void main(String [] args){
-   
-   //in : {1 , 2}
-   //out: 1 2 1 2 1 2 -> print three times 0 1 0 1 0 1, will not have ArrayOutof Bounds execption
-   int [] arr = {1,2};
-//     String str = "raddak";
-//       
-//       
-      // int num = 56;      
-//       int startNum = 56;
-//       // prints the divisors of an int from startNum up to and including num
-//       while (startNum <= num){  
-//          int divisor = 1;
-//          System.out.print("divisors of " + startNum + ": ");
-//          while (divisor <= 10){
-//          
-//             if(startNum%divisor == 0){
-//                System.out.print(divisor + " ");
-//                if (startNum / divisor > 10){
-//                   System.out.print(startNum / divisor + " ");
-//                   }
-//                }
-//                divisor++;
-//          }
-         
-         // increment somethiung here 
-//          startNum++;
-//          System.out.println();  
-//       }
-      
-//       comparing to strings 
-
-//   Plaindrom modified (works with or without case and with or without ',' )
-//          String str = "r,A,,,,,,,,,,,,,,,d,ar";
-//          int startI = 0;
-//          int endI = str.length() - 1;
-//          
-//          str = str.toLowerCase();
-//          
-//          while (startI < endI) {
-//             if (str.charAt(startI) == ','){
-//                startI++;
-//             }
-//             if (str.charAt(endI) == ','){
-//                endI--;
-//             }
-//             if (!( str.charAt(startI) == str.charAt(endI) )){
-//                System.out.println("Not a palindrome");
-//                break;
-//                }
-//             startI++;
-//             endI--;
-//             
-//       } 
-
-//  Printing the number of times a letter ouccrs consecutively in a string
-// String str = "ab#";
-//       char currLetter; // first letter - 'a'
-//       int numTimes = 1;
-//       String temp = "";
-//       int i = 0;
-//       
-//       
-//       while (i < str.length() - 1){
-//          
-//          currLetter = str.charAt(i);
-//          // we have not consisdered the last letter 
-//          if (str.charAt(i+1) == currLetter)
-//          {
-//             numTimes++;
-//          }
-//          else
-//          {
-//             temp = temp + numTimes + currLetter;
-//             numTimes = 1;
-//          }
-//          i++;
-//       
-//       }
-
-//       
-         // int [] b = {1,2,3,4};
-//          addAnElement(4, 56, b);
-         
-        
-//          playijg nwith 2d arrays:
-//// 0 0 0 0 0 0 0 0 0 0 
-// 0 0 0 1 0 0 0 0 0 0 
-// 0 0 0 1 1 0 0 0 0 0 
-// 0 0 0 1 1 1 0 0 0 0 
-// 0 0 0 1 1 1 1 0 0 0    
-// int numTimes = 1;
-//             
-//  int [][] arr_1 = new int[5][10];
-//                               
-//             for(int row = 1; row < arr_1.length; row++)
-//             {
-//                int num0s = 0;
-//                for(int col = 3; num0s < numTimes && col < arr_1[row].length; col++)
-//                {
-//                   arr_1[row][col] = 1;
-//                   num0s++;
-//                }
-//                numTimes++;
-//             }
-
-
-
-
-      // int [] arr = {5, 8, 7, 12, 14, 3, 9};
-//       
-//       int k, x;
-//       
-//       k = 2;
-//       x = 8;
-//       
-//       for (int i = 0; i < arr.length; i += k)
-//       {
-//          boolean foundIt = false;
-//          for (int j = i; j <= i + (k - 1) && j < arr.length; j += 1)
-//          {
-//             if(arr[j] == x)
-//             {
-//                foundIt = true;
-//                break;
-//             }
-//          }
-//          if(!foundIt)
-//          {
-//             System.out.println("No");
-//             break;
-//          }
-//       }
-//       
-//       System.out.println("Done");
-//       int [] y = {-5, 7, -3, -4, 9, 10, -1, 11};
-//       moveAll(y);
-
-         // the hourglass problem
-
-           //  int [][] A = {
-//                            {1, 1, 1, 0, 0, 0},
-//                            {0, 1, 0, 0, 0, 0},
-//                            {1, 1, 1, 0, 0, 0},
-//                            {0, 0, 2, 4, 4, 0},
-//                            {0, 0, 0, 2, 0, 0},
-//                            {0, 0, 1, 2, 4, 0} };
-//             
-//             int max= 0;
-//             for(int i = 0; i <= A.length - 3; i++)
-//             {
-//          	   for(int j = 0; j <= A[i].length - 3; j++)
-//          	   {
-//             		int sum = 0;
-//             		int h = A[i][j] + A[i][j + 1] + A[i][j + 2] ;
-//             		int m = A[i + 1][j + 1];
-//             		int e = A[i + 2][j] + A[i + 2][j + 1] + A[i + 2][j + 2];
-//             		sum  = h + m + e;
-//             		if(sum > max)
-//             		{
-//             			max = sum;
-//             		}
-//                }
-//             }
-//             
-//             System.out.println(max);
-      // String str = "geeksforgeeks";
-//       int si = 0;
-//       int ei  = str.length() - 1;
-//       int counter = 0;
-   // a
-   // a a
-   // b c
-   // a c c -> cc | c = 1
-   
-   // a e b e b a | c: 1
-   
-   //e b b e | c: 0
-      // while(si < ei) // 0 < 2
-//       {
-//          if(str.charAt(si) != str.charAt(ei))
-//          {
-//             if(str.charAt(si) == str.charAt(ei - 1))
-//             {
-//                counter++;
-//                si+=1; // 1
-//                ei-=2; // -1
-//             }
-//             else if(str.charAt(si + 1) == str.charAt(ei))
-//             {
-//                counter++; // c: 1
-//                si+=2; // 2
-//                ei-=1; // 1
-//             }
-//             else
-//             {
-//                counter += 2;
-//                si++;
-//                ei--;
-//             }
-//          
-//          }
-//          else
-//          {
-//             si++; // 1
-//             ei--; // 0
-//          }
-//       
-//       }
-//    
-//       System.out.println(counter);
-//    
-//    }
-   // 
-//    
-//                int [] b = {6, 10, 5, 4, 9, 120, 4, 6, 10};
-//                
-//                
-//                for(int i = 0; i < b.length; i++)
-//                {
-//                   
-//                   for (int j = i + 1; j < b.length; j++)
-//                   {
-//                      if(b[j] == b[i])
-//                      {
-//                         System.out.println(b[i]);
-//                         break;
-//                      }
-//                   }
-//                }
-
+   {
+      if(str.indexOf(phrase) >= 0)
+      {
+         return 1 + findNumOfOccurences(str.substring(str.indexOf(phrase) + phrase.length()), phrase);//adding the indexOf(ph..) and ph...length() does not skip any leetrs
+      }
+      return 0; 
    }
-   
+   public static void main(String [] args){
+      int [] arr = {1,2};
+      char [] chars = {'a','b','c','d'};
+      int counter = 3;
+      String notAPalindrome = "car";
+      String isAPalindrome = "radar";
+      String oneLetter = "a";
+      String twoLetter = "ab";
+      //printCounterTimes(int [] arr, int counter)
+      printCounterTimes(arr, counter);
+      System.out.println();
+      //isPalindrome(String str)
+      System.out.println(isPalindrome(notAPalindrome));
+      System.out.println(isPalindrome(isAPalindrome));
+      System.out.println();
+      //compareStrings(String s1, String s2)
+      compareStrings(notAPalindrome, isAPalindrome);
+      System.out.println();
+      //switchAdjacentCharsOf(String str)
+      System.out.println(switchAdjacentCharsOf(notAPalindrome));
+      System.out.println(switchAdjacentCharsOf(isAPalindrome));
+      System.out.println(switchAdjacentCharsOf(oneLetter));
+      System.out.println(switchAdjacentCharsOf(twoLetter));
+      System.out.println();
+      //printNums(int factor, int ... numList)
+      printNums(3, 4, 5, 6, 7);
+      System.out.println();
+      //addElementInArray(int i, int num, int [] arr)
+      addElementInArray(0, counter, arr);
+      System.out.println(java.util.Arrays.toString(arr)); //arr in main is unchanged
+      System.out.println();
+      //findSum(int [] a, int n, int m)
+      System.out.println(findSum(arr, 0, 0));
+      System.out.println(findSum(arr, 1, 0));
+      System.out.println();
+      //diffBetween(double a, double b, double tolerance)
+      diffBetween(6.5, 6.5, 0.001);
+      System.out.println();
+      //givePermutationsOf(char [] ch)
+      givePermutationsOf(chars);
+      //findNumOfOccurences(String str, String phrase)
+      System.out.println(findNumOfOccurences(isAPalindrome, "a"));
+      System.out.println();
+   }
+
 }
