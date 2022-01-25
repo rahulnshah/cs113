@@ -11,22 +11,21 @@ The following methods should also be provided:
 number of students
 - Methods to set and retrieve the instructor
 */
-
-public class Course{
+public class Course {
    private String courseName;
    private int registrationCode;
-   // set max # of studs to 35, probably good to store it in a static constant of type int
-   private static final int MAX_NUM_OF_STUDENTS = 35;  
+   //private static final int maxStudents = 35;  
+   private int maxStudents; 
    private Instructor instructor;
    private int numberOfStudents;
-   private Student [] registeredStudents = new Student[MAX_NUM_OF_STUDENTS];
+   private Student [] registeredStudents;
    
-   public Course(String courseName, int registrationCode, int numberOfStudents)
+   public Course(String courseName, int registrationCode)
    {
       this.courseName = courseName;
       this.registrationCode = registrationCode;
-      this.numberOfStudents = numberOfStudents;
-      // if numberOfStudents <= 35, set the registeredStudents array else, throw an error or message to the screen.
+      this.maxStudents = 35;
+      this.registeredStudents = new Student[maxStudents];
    }
    
    public void setInstructor(Instructor instructor)
@@ -60,7 +59,7 @@ they registered.
 */
    public void addStudent(Student s) throws CourseFullException
    {
-      if(numberOfStudents >= MAX_NUM_OF_STUDENTS)
+      if(numberOfStudents >= maxStudents)
       {
          throw new CourseFullException(courseName + " is full.");
       }
@@ -89,7 +88,7 @@ found, then an exception with an appropriate message should be raised
       }
       //else , remove him/her, search for their ID, because their ID is unique,  then set the reference of that 
       //index to null 
-      for(int i = 0; i < MAX_NUM_OF_STUDENTS; i++)
+      for(int i = 0; i < maxStudents; i++)
       {
          if(registeredStudents[i].getStudentId() == s.getStudentId())
          {

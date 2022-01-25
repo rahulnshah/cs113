@@ -7,8 +7,8 @@ The following methods should also be provided:
 - A constructor that initializes the name and id fields
 - Methods to set and retrieve the instructor’s department
 */
-
-public class Instructor{
+import java.io.Serializable;
+public class Instructor  implements Serializable{
    private String instructorName;
    private int instructorId;
    private String department;

@@ -15,7 +15,8 @@ id numbers are the same (override equals from the class Object)
 - Methods to set and retrieve the total number of grade points earned
 - A method that returns the GPA (grade points divided by credits)
 */
-public class Student
+import java.io.Serializable;
+public class Student  implements Serializable
 {
    private String name;
    private int studentId;
