@@ -62,7 +62,7 @@ found, then an exception with an appropriate message should be raised
    
    }
    /*- A method that will allow Course objects to be output to a file using
-object serialization
+object serializatio
 */
    public void outputTo()
    {
