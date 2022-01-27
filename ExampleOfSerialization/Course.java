@@ -11,7 +11,8 @@ The following methods should also be provided:
 number of students
 - Methods to set and retrieve the instructor
 */
-public class Course {
+import java.io.*;
+public class Course implements Serializable{
    private String courseName;
    private int registrationCode;
    //private static final int maxStudents = 35;  
@@ -100,14 +101,40 @@ found, then an exception with an appropriate message should be raised
    /*- A method that will allow Course objects to be output to a file using
 object serializatio
 */
-   public void outputTo()
+   public static void outputTo(String pathToFile, Course course)
    {
-   
+      try {
+         FileOutputStream fileOut = new FileOutputStream(pathToFile);
+         ObjectOutputStream out = new ObjectOutputStream(fileOut);
+         out.writeObject(course);
+         out.close();
+         fileOut.close();
+         System.out.println("Serialized data is saved in " + pathToFile);
+      } catch (IOException i) {
+         i.printStackTrace();
+      }
    }
    /*- A method that will allow Course objects to be read in from a file created
 with Object serializtion*/
-   public void readFrom()
+   public static Course readFrom(String pathToFile)
    {
-      
-   }  
+      Course course = null;
+      try {
+         FileInputStream fileIn = new FileInputStream(pathToFile);
+         ObjectInputStream in = new ObjectInputStream(fileIn);
+         course = (Course) in.readObject();
+         in.close();
+         fileIn.close();
+      } catch (IOException i) {
+         i.printStackTrace();
+      } catch (ClassNotFoundException c) {
+         System.out.println("Employee class not found");
+         c.printStackTrace();
+      } 
+      return course;
+   } 
+   public String getCourseName()
+   {
+      return courseName;
+   } 
 }

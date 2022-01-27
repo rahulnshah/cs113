@@ -16,7 +16,7 @@ id numbers are the same (override equals from the class Object)
 - A method that returns the GPA (grade points divided by credits)
 */
 import java.io.Serializable;
-public class Student  implements Serializable
+public class Student implements Serializable
 {
    private String name;
    private int studentId;
