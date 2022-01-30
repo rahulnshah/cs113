@@ -123,7 +123,7 @@ with Object serializtion*/
       } catch (IOException i) {
          i.printStackTrace();
       } catch (ClassNotFoundException c) {
-         System.out.println("Employee class not found");
+         System.out.println("Course class not found");
          c.printStackTrace();
       } 
       return course;
