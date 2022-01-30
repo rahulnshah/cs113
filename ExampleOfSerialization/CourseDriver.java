@@ -14,5 +14,33 @@ public class CourseDriver
       {
          System.out.println("Course is unreferenced");
       }
+      int idNum = 1;
+      //run a for loop to add all of the students, two students with same name can be added as long as their id differ 
+      try
+      {
+         for(int i = 0; i < 35; i++)
+         {
+            hist213.addStudent(new Student("student" + idNum, idNum));
+            idNum++;
+         }
+         //exception thrown 
+         hist213.addStudent(new Student("student" + idNum, idNum + 1));
+      }
+      catch(CourseFullException c)
+      {
+         System.out.println(c.getMessage());
+      }
+      
+      try
+      {
+          hist213.removeStudent(new Student("student" + 1,1));
+          //exception thrown 
+          hist213.removeStudent(new Student("student" + 1,1));
+          hist213.removeStudent(new Student("student" + 68,68));
+      }
+      catch(CourseFullException c)
+      {
+         System.out.println(c.getMessage());
+      }
    }
 }

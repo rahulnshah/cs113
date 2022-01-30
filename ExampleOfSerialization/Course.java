@@ -1,21 +1,7 @@
-/*
-A Course class that minimally stores the following data for a course:
-- name of the course
-- course registration code
-- maximum number of 35 students ?<--------------
-- instructor
-- number of students
-- students registered in the course (an array)
-The following methods should also be provided:
-- A constructor that initializes the name, registration code, and maximum
-number of students
-- Methods to set and retrieve the instructor
-*/
 import java.io.*;
 public class Course implements Serializable{
    private String courseName;
    private int registrationCode;
-   //private static final int maxStudents = 35;  
    private int maxStudents; 
    private Instructor instructor;
    private int numberOfStudents;
@@ -42,10 +28,10 @@ public class Course implements Serializable{
 based on an ID number.*/
    public boolean search(int studentId)
    {
-      //binary search 
-      for(Student s : registeredStudents)
+      //linear search 
+      for(int i = 0; i < numberOfStudents; i++)
       {
-         if(studentId == s.getStudentId())
+         if(registeredStudents[i] != null && studentId == registeredStudents[i].getStudentId())
          {
             return true;
          }
@@ -60,12 +46,12 @@ they registered.
 */
    public void addStudent(Student s) throws CourseFullException
    {
+      //when to search the student? well there has to be >= 1 stduent in the array for the search to go on.
       if(numberOfStudents >= maxStudents)
       {
          throw new CourseFullException(courseName + " is full.");
       }
-      boolean isInCourse = search(s.getStudentId()); //pass the student's id number 
-      if(!isInCourse)
+      else if(numberOfStudents < 1)
       {
          //add the student 
          registeredStudents[numberOfStudents] = s;
@@ -73,7 +59,18 @@ they registered.
       }
       else
       {
-         System.out.println(s.getName() + " is in the course.");
+      
+         boolean isInCourse = search(s.getStudentId()); //pass the student's id number 
+         if(!isInCourse)
+         {
+            //add the student 
+            registeredStudents[numberOfStudents] = s;
+            numberOfStudents++;
+         }
+         else
+         {
+            System.out.println(s.getName() + " is in the course.");
+         }
       }
    }
    /*- A method to remove a student from the course. If the student is not
@@ -87,8 +84,6 @@ found, then an exception with an appropriate message should be raised
       {
          throw new CourseFullException(s.getName() + " is not in " + courseName);
       }
-      //else , remove him/her, search for their ID, because their ID is unique,  then set the reference of that 
-      //index to null 
       for(int i = 0; i < maxStudents; i++)
       {
          if(registeredStudents[i].getStudentId() == s.getStudentId())
