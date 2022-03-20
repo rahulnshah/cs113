@@ -19,7 +19,7 @@ public class Main
 		//statement below prints a space
 		System.out.println();
 
-		//valueOf used with Integer and String 
+		//valueOf() used with Integer and String 
 		Stack<String> stack = new Stack<String>();
 		String [] a = {"2", "4", "5", "6"};
 
@@ -39,9 +39,31 @@ public class Main
 			System.out.println(item + "\n");
 		}
 
-	//Random Problem 1
+	//Find all lonely numbers in the array 
+		int [] nums = {1,2,3,1,2,3};
 		
-		//How to fill up a map with frequencies
+		//contains(), put(), and get() used with map 
+		//(insertion order not retained in HashMap)
+		Map<Integer, Integer> map = new HashMap<>();
+		
+		//How to fill up a map with frequencies of each num in nums
+		for(int num : nums)
+		{
+			if(!map.containsKey(num))
+			{
+				map.put(num, 1);
+			}
+			else 
+			{
+				map.put(num, map.get(num) + 1);
+			}
+		}
+
+		//traverse map using keySet()
+		for (Integer key : map.keySet()) {
+        		System.out.println(key + ":" + map.get(key) + "\n");
+    		}
+			
 	
 	//Random Problem 2
 		
