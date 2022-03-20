@@ -42,14 +42,15 @@ public class Main
 	//Find all lonely numbers in the array 
 		int [] nums = {1,2,3,1,2,3};
 		
-		//contains(), put(), and get() used with map 
+		//containsKey(), put(), and get() used with map 
 		//(insertion order not retained in HashMap)
 		Map<Integer, Integer> map = new HashMap<>();
 		
-		//How to fill up a map with frequencies of each num in nums
+		//How to fill up a map with frequencies of each num in nums - O(n) time 
 		for(int num : nums)
 		{
-			if(!map.containsKey(num))
+			//constainsKey() takes O(1) time 
+			if(!map.containsKey(num)) 
 			{
 				map.put(num, 1);
 			}
