@@ -2,7 +2,7 @@ import java.util.*;
 public class Main 
 {
 	public static void main (String [] args){
-	    //Evaluate Reverse Polish Notation  
+	//Evaluate Reverse Polish Notation  
 
 		// contains() used with a string: 
 		String operators = "+-*/";
@@ -38,6 +38,16 @@ public class Main
 		{
 			System.out.println(item + "\n");
 		}
+
+	//Random Problem 1
+		
+		//How to fill up a map with frequencies
+	
+	//Random Problem 2
+		
+		//toCharArray used with String 
+		
+			
 		
 	}
 
