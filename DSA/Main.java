@@ -66,7 +66,7 @@ public class Main
     		}
 			
 	
-	//Random Problem 2
+	//
 		
 		//toCharArray used with String 
 		
