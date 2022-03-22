@@ -65,12 +65,6 @@ public class Main
         		System.out.println(key + ":" + map.get(key) + "\n");
     		}
 			
-	
-	//
-		
-		//toCharArray used with String 
-		
-			
 		
 	}
 
