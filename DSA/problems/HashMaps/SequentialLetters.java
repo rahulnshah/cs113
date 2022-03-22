@@ -6,6 +6,8 @@ public class SequentialLetters
 		//loop strs, str the freq in a hashmap 
 		Map<String, Integer> mp = new HashMap<>();
 		String emptyStr = "";
+
+		//only letter freq counted 
 		String validLetters = "abcdefghijklmnopqurstuvwxyz";
 		for(String str : strs)
 		{
@@ -23,7 +25,7 @@ public class SequentialLetters
 			
 		}
 
-		//loop the hashmap, attach key value to aen ampty string 
+		//loop the hashmap, attach key:value to an empty string 
 		for(String str : mp.keySet())
 		{
 			emptyStr += str + mp.get(str);
