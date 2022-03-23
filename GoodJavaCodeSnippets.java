@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class GoodJavaCodeSnippets{
    public static void moveAll(int [] arr)
-   {
+   {  
       
       for(int i = 0; i < arr.length; i++)
       {
