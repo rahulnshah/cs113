@@ -1,13 +1,15 @@
 package DSA.problems.HashMaps;
-import java.util.*;
+import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.List;
 public class DifferenceOfTwoArrays {
-    public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+	public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         List<List<Integer>> answer = new ArrayList<List<Integer>>(2); 
         answer.add(new ArrayList<Integer>());
         answer.add(new ArrayList<Integer>());
-        //create maps for nums1 and nums2 to remove duplicates 
-        Map<Integer, Integer> mp1 = new HashMap<Integer, Integer>();
-        Map<Integer, Integer> mp2 = new HashMap<Integer, Integer>();
+        //create TreeMaps for nums1 and nums2 to remove duplicates 
+        TreeMap<Integer, Integer> mp1 = new TreeMap<Integer, Integer>();
+        TreeMap<Integer, Integer> mp2 = new TreeMap<Integer, Integer>();
         //loop nums1
         for(Integer num1 : nums1)
         {
@@ -43,13 +45,5 @@ public class DifferenceOfTwoArrays {
         //mem: o(n)
         //time comp: o(n)
         return answer;
-    }
-    
-    public static void main(String [] args)
-    {
-    	int [] nums1 = {1,2,3,3};
-    	int [] nums2 = {1,2,2};
-    	System.out.println(findDifference(nums1, nums2));
-    }
-
+    }   
 }
