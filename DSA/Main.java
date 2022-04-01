@@ -64,8 +64,22 @@ public class Main
 		for (Integer key : map.keySet()) {
         		System.out.println(key + ":" + map.get(key) + "\n");
     		}
-			
 		
+		//isEmpty(), peek() used with Stack
+	 	Stack<Integer> numeros = new Stack<Integer>();
+		for(int i = 0; i < 9; i++)
+		{
+			numeros.push(i);
+		}
+		
+		while(!numeros.isEmpty())
+		{
+			System.out.print(numeros.peek() + " ");
+			numeros.pop();
+		}
+
+		//statement below prints a space
+		System.out.println();
 	}
 
 
