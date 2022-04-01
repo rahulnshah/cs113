@@ -65,6 +65,7 @@ public class Main
         		System.out.println(key + ":" + map.get(key) + "\n");
     		}
 		
+	//Infix to Postfix
 		//isEmpty(), peek() used with Stack
 	 	Stack<Integer> numeros = new Stack<Integer>();
 		for(int i = 0; i < 9; i++)
