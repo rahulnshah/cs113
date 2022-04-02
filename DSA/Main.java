@@ -81,6 +81,11 @@ public class Main
 
 		//statement below prints a space
 		System.out.println();
+		
+		//toCharArray() used with strings
+		char [] str = "Hello world".toCharArray();
+		//[H, e, l, l, o,  , w, o, r, l, d] -> an array of chars 
+    		System.out.println(Arrays.toString(str)); 
 	}
 
 
