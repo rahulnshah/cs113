@@ -18,7 +18,6 @@ public class ValidParenthesisTest {
 	public static void tearDownAfterClass(){
 		a = null;
 	}
-
 	@Test
 	public void isValid1() {
 		boolean ans = a.isValid("{[]}");
