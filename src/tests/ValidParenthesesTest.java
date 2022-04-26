@@ -6,7 +6,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import DSA.problems.Stack.*;
-public class ValidParenthesisTest {
+public class ValidParenthesesTest {
 
 	public static ValidParentheses a;
 	@BeforeClass
