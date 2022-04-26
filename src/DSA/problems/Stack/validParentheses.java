@@ -1,7 +1,7 @@
 
 package DSA.problems.Stack;
 import java.util.Stack;
-public class validParentheses {
+public class ValidParentheses {
 	public boolean isValid(String a) {
         
 	    //does the string have balanced parenthesis?
@@ -85,12 +85,6 @@ public class validParentheses {
 	    	return false;
 	    }
 	    
-	    /*
-	    - case1: {[]} stack: output: balanced 
-	    - case2: {[)} stack: {[ output: not balanced 
-	    - case3 : {) stack: output : not balanced 
-	    - case4 : {{{{{{ stack: {{{{{{ output : not balanced( stack not empty) 
-	    - case5 : {})))) stack:  output: not balanced (stack empty) 
-	    */
+	    
 	    }
 }
