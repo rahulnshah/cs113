@@ -47,12 +47,5 @@ public class ValidParenthesisTest {
 		boolean exp = false;
 		assertEquals(exp,ans);
 	}
-	/*
-    - case1: {[]} stack: output: balanced 
-    - case2: {[)} stack: {[ output: not balanced 
-    - case3 : {) stack: output : not balanced 
-    - case4 : {{{{{{ stack: {{{{{{ output : not balanced( stack not empty) 
-    - case5 : {})))) stack:  output: not balanced (stack empty) 
-    */
 
 }
