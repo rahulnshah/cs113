@@ -22,10 +22,10 @@ public class Main
 
 		//valueOf() used with Integer and String 
 		Stack<String> stack = new Stack<String>();
-		String [] a = {"2", "4", "5", "6"};
+		String [] h = {"2", "4", "5", "6"};
 
 		//prints 2 - 6 delimited by \n
-		for(String i : a)
+		for(String i : h)
 		{
 			int x = Integer.valueOf(i);
 			System.out.println(x + "\n");
@@ -64,8 +64,25 @@ public class Main
 		//traverse map using keySet()
 		for (Integer key : map.keySet()) {
         		System.out.println(key + ":" + map.get(key) + "\n");
-    		}
-			
+    	}
+		
+		//max(), min(), and ceil()
+		int a = 5, b = 6;
+		double i = 5, x = 5.0, y = 4.5;
+		System.out.println(Math.min(a, b));
+		//5
+		System.out.println(Math.max(a, b));
+		//6
+		System.out.println(Math.min(a, a));
+		//5
+		System.out.println(Math.max(b, b));
+		//6
+		System.out.println(Math.ceil(y));
+		//rounds upward - 5.0 
+		System.out.println(Math.ceil(x));
+		//rounds to 5.0 still
+		System.out.println(Math.ceil(i));
+		//rounds to 5.0 still	
 		
 	}
 
