@@ -3,4 +3,4 @@ This repository contains a Pizza 🍕 receipt management system 📜 made using 
 (portfolio project)
 
 # TODO:
-- Figure out how to open cloned repos in Eclipse 
+- Figure out how to open cloned repos in Eclipse
