@@ -17,3 +17,10 @@
 2. Write a second main program called [ArrayListInAction](ArrayListInAction.java) that provides a menu to allow the user to: 
     - create a FastFood 
     - view all orders 
+
+# TODO:
+~~-Store orders in a map (TreeMap so map is soreted by key) instead of an arraylist~~
+    ~~- See if you can remove the last key (timestamp) and value (FastFood object) from the map~~
+    ~~- See in what order are objects stored in a Java Map; is it oldest...recent? ~~
+        ~~- if so, then appending entries and removing the first item in the map would make sense; allows the user to view recent orders.~~ 
+

@@ -1,27 +1,34 @@
-import java.util.ArrayList;
+import java.util.TreeMap;
+import java.util.Calendar;
 import java.util.Date;
 public class MyOrderList
 {
-   public ArrayList<String> orders; //keep a array list of all fast food orders with Date and time 
+   private TreeMap<Date, FastFood> orders; //keep a TreeMap of all fast food orders with Date 
+   private static Calendar cal;
+   private static Date nowTime;
    
    public MyOrderList()
    {
-      orders = new ArrayList<String>();
+      orders = new TreeMap<>();
+      cal = Calendar.getInstance();
+      nowTime = new Date();
+      cal.setTime(nowTime);
    }
-
 
    public void addOne(FastFood food)
    {
-      Date now = new Date();
-      orders.add(0,now + "-" + food.toString());
+      cal.add(Calendar.SECOND, 1); //add one second to whatever nowTime is at a given moment 
+      nowTime = cal.getTime();
+      cal.setTime(nowTime);
+      orders.put(nowTime,food);
       
-      if(orders.size() > 2) //maintain only a size of 2 orders in ArrayList 
+      if(orders.size() > 3) //maintain only a size of 2 orders in TreeMap 
       {
-            orders.remove(2);
+            orders.pollFirstEntry();
       }
    }
    
-   public ArrayList<String> getOrderList()
+   public TreeMap<Date, FastFood> getOrderList()
    {
         return orders;
    }

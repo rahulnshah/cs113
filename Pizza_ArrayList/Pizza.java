@@ -1,11 +1,10 @@
 public class Pizza extends FastFood{
 
-   private int pizzaRadius;
+   private double pizzaRadius;
    private String topping; 
- 
    private static String specialIngredient = "Cheese";
   
-   public Pizza(int pizzaRadius, String topping)
+   public Pizza(double pizzaRadius, String topping)
    {
       super("Pizza");
       this.pizzaRadius = pizzaRadius;
