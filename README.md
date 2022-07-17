@@ -1,3 +1,3 @@
 # cs113 
-This repository contains solutions to leetcode problems I have attempted, a Pizza 🍕 receipt management system 📜 made using the ArrayList Data Structure, and a School Registrar application 🏫. 
+This repository contains a Pizza 🍕 receipt management system 📜 made using the ArrayList Data Structure, a School Registrar application 🏫, and solutions to leetcode problems I have attempted.  
 (portfolio project)
