@@ -82,14 +82,17 @@ found, then an exception with an appropriate message should be raised
       boolean isInCourse = search(s.getStudentId()); //pass the student's id number 
       if(!isInCourse)
       {
-         throw new CourseFullException(s.getName() + " is not in " + courseName);
+         System.out.println(s.getName() + " is not in the course.");
       }
-      for(int i = 0; i < maxStudents; i++)
+      else
       {
-         if(registeredStudents[i].getStudentId() == s.getStudentId())
+         for(int i = 0; i < maxStudents; i++)
          {
-            registeredStudents[i] = null;
-            break; // no need to go further looking becasue id is unique
+            if(registeredStudents[i].getStudentId() == s.getStudentId())
+            {
+               registeredStudents[i] = null;
+               break; // no need to go further looking becasue id is unique
+            }
          }
       }
    }
