@@ -83,9 +83,14 @@ public class Main
 		System.out.println();
 		
 		//toCharArray() used with strings
-		char [] str = "Hello world".toCharArray();
+		char [] str = "hello world".toCharArray();
 		//[H, e, l, l, o,  , w, o, r, l, d] -> an array of chars 
-    		System.out.println(Arrays.toString(str)); 
+    	System.out.println(Arrays.toString(str));
+    	
+    	System.out.println();
+    	//Valid Anagram: integer operations with chars 
+    	int index = str[0] - 'a';
+    	System.out.println(index);
 	}
 
 
