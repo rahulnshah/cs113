@@ -3,6 +3,20 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class GoodJavaCodeSnippets{
+	public static void printAllCombs(int n)
+	{
+			/*
+			 * common Brute-Force approach
+			 * get all combinations of different indexes 
+			 * notice i and j are never equal below
+			 * less iterations with this method (exactly half of that of traditional nested loops), but still O(n^2) time complexity  
+		    */
+		    for(int i = 0; i < n; i++){
+		    	for(int j = i + 1; j < n; j++){
+		        	System.out.println("(" + i + ", " + j + ") ");
+		        }
+		    }
+	}
    public static void moveAll(int [] arr)
    {  
       
@@ -216,6 +230,8 @@ public class GoodJavaCodeSnippets{
       //findNumOfOccurences(String str, String phrase)
       System.out.println(findNumOfOccurences(isAPalindrome, "a"));
       System.out.println();
+      //public static void printAllCombs(int n)
+      printAllCombs(3);
    }
 
 }
