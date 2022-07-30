@@ -91,6 +91,24 @@ public class Main
     	//Valid Anagram: integer operations with chars 
     	int index = str[0] - 'a';
     	System.out.println(index);
+    	
+    	// initializing different data structures in Java
+    	ArrayList<Integer> aList = new ArrayList<>();
+    	
+    	Stack<Integer> aStack = new Stack<>();
+    	
+    	List<Integer> anotherList = new ArrayList<>();
+    	
+    	Map<String, Integer> anotherMap = new HashMap<>();
+    	
+    	HashMap<String, Integer> aMap = new HashMap<>();
+    	
+    	Map<Integer, String> anotherTreeMap = new TreeMap<>();
+    	
+    	TreeMap<Integer, String> aTreeMap = new TreeMap<>();
+    	
+    	PriorityQueue<Integer> pQueue = new PriorityQueue<>();
+    	
 	}
 
 
