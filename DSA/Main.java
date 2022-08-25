@@ -63,7 +63,7 @@ public class Main
 		//traverse map using keySet()
 		for (Integer key : map.keySet()) {
         		System.out.println(key + ":" + map.get(key) + "\n");
-    		}
+    	}
 		
 	//Infix to Postfix
 		//isEmpty(), peek() used with Stack
@@ -107,8 +107,39 @@ public class Main
     	
     	TreeMap<Integer, String> aTreeMap = new TreeMap<>();
     	
-    	PriorityQueue<Integer> pQueue = new PriorityQueue<>();
+    	Queue<Integer> pQueue = new PriorityQueue<>(); // min-heap by default (ascending)
     	
+    	// Ex: offer() (used to add elements)    	
+    	pQueue.offer(40);
+    	pQueue.offer(12);
+    	pQueue.offer(24);
+    	
+    	// ordering is never the same in a pQueue
+    	System.out.println(pQueue); 
+    	
+    	// Ex: poll() (used to remove elements)
+    	pQueue.poll(); // 12 is the smallest, hence it is removed first. 
+    	
+    	System.out.println(pQueue);
+    	
+    	//Ex: peek() (used to return the current smallest element in pQueue) a.k.a 24
+    	System.out.println(pQueue.peek());
+    	
+    	Queue<Integer> maxPQueue = new PriorityQueue<>(Comparator.reverseOrder()); // max-heap
+    	
+    	maxPQueue.offer(40);
+    	maxPQueue.offer(12);
+    	maxPQueue.offer(34);
+    	
+    	maxPQueue.poll(); // 40 is the biggest, hence it is removed first.
+    	
+    	System.out.println(maxPQueue.peek()); // 34 is the current biggest value so it is printed 
+    	
+    	// Iterate over all elements in a pQueue 
+    	for(Integer num : maxPQueue)
+    	{
+    		System.out.print(num + " ");
+    	}
 	}
 
 
