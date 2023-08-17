@@ -1,3 +1,10 @@
+import school_registrar.Course;
+import school_registrar.CourseException;
+import school_registrar.Student;
+import school_registrar.StudentException;
+
+import java.util.Arrays;
+
 public class CourseDriver
 {
    public static void main(String [] args)
@@ -15,32 +22,28 @@ public class CourseDriver
          System.out.println("Course is unreferenced");
       }
       int idNum = 1;
-      //run a for loop to add all of the students, two students with same name can be added as long as their id differ 
+      //run a for loop to add all the students, two students with same name can be added as long as their id differ
       try
       {
-         for(int i = 0; i < 35; i++)
-         {
-            hist213.addStudent(new Student("student" + idNum, idNum));
-            idNum++;
-         }
-         //exception thrown 
-         hist213.addStudent(new Student("student" + idNum, idNum + 1));
+         hist213.addStudent(new Student("student23", 23));
+         hist213.addStudent(new Student("student2", 2));
+         hist213.addStudent(new Student("student12", 12));
+         hist213.addStudent(new Student("student12", 12));
       }
-      catch(CourseFullException c)
+      catch(CourseException | StudentException c)
       {
          System.out.println(c.getMessage());
       }
       
       try
       {
-          hist213.removeStudent(new Student("student" + 1,1));
-          //exception thrown 
-          hist213.removeStudent(new Student("student" + 1,1));
-          hist213.removeStudent(new Student("student" + 68,68));
+          //hist213.removeStudent(new Student("student" + 1,1));
+          hist213.removeStudent(new Student("student" + 12,12));
       }
-      catch(CourseFullException c)
+      catch(CourseException | StudentException c)
       {
          System.out.println(c.getMessage());
       }
+      System.out.println(Arrays.toString(hist213.registeredStudents));
    }
 }

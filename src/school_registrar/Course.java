@@ -1,3 +1,5 @@
+package school_registrar;
+
 import java.io.*;
 public class Course implements Serializable{
    private String courseName;
@@ -5,7 +7,7 @@ public class Course implements Serializable{
    private int maxStudents; 
    private Instructor instructor;
    private int numberOfStudents;
-   private Student [] registeredStudents;
+   public Student [] registeredStudents;
    
    public Course(String courseName, int registrationCode)
    {
@@ -28,12 +30,17 @@ public class Course implements Serializable{
 based on an ID number.*/
    public boolean search(int studentId)
    {
-      //linear search 
-      for(int i = 0; i < numberOfStudents; i++)
-      {
-         if(registeredStudents[i] != null && studentId == registeredStudents[i].getStudentId())
-         {
+      // binary search
+      int left = 0;
+      int right = numberOfStudents - 1;
+      while(left <= right) {
+         int mid = (left + right) / 2;
+         if (studentId == registeredStudents[mid].getStudentId()) {
             return true;
+         } else if (registeredStudents[mid].getStudentId() < studentId) {
+            left = mid + 1;
+         } else {
+            right = mid - 1;
          }
       }
       return false;
@@ -44,60 +51,71 @@ own exception class for this). Also, be sure that the student is not already
 registered in the course. The list of students should be in the order that
 they registered.
 */
-   public void addStudent(Student s) throws CourseFullException
-   {
-      //when to search the student? well there has to be >= 1 stduent in the array for the search to go on.
+   public void addStudent(Student s) throws CourseException, StudentException {
+      //when to search the student? well there has to be >= 1 student in the array for the search to go on.
       if(numberOfStudents >= maxStudents)
       {
-         throw new CourseFullException(courseName + " is full.");
+         throw new CourseException(courseName + " is full.");
       }
-      else if(numberOfStudents < 1)
+      else if(numberOfStudents < 1 || !search(s.getStudentId()))
       {
-         //add the student 
+         /* reorder the student's position so all
+         students are in asc order by their id
+          */
          registeredStudents[numberOfStudents] = s;
+         int tempIndex = numberOfStudents;
+         while(tempIndex > 0 && registeredStudents[tempIndex].getStudentId() < registeredStudents[tempIndex - 1].getStudentId())
+         {
+            // swap current student and previous student
+            Student previousStudent = registeredStudents[tempIndex - 1];
+            registeredStudents[tempIndex - 1] = registeredStudents[tempIndex];
+            registeredStudents[tempIndex] = previousStudent;
+            tempIndex--;
+         }
          numberOfStudents++;
       }
       else
       {
-      
-         boolean isInCourse = search(s.getStudentId()); //pass the student's id number 
-         if(!isInCourse)
-         {
-            //add the student 
-            registeredStudents[numberOfStudents] = s;
-            numberOfStudents++;
-         }
-         else
-         {
-            System.out.println(s.getName() + " is in the course.");
-         }
+         throw new StudentException(s.getName() + " is in the course.");
       }
    }
    /*- A method to remove a student from the course. If the student is not
 found, then an exception with an appropriate message should be raised
 (use the same exception class mentioned above).
 */
-   public void removeStudent(Student s) throws CourseFullException
-   {
-      boolean isInCourse = search(s.getStudentId()); //pass the student's id number 
-      if(!isInCourse)
+   public void removeStudent(Student s) throws CourseException, StudentException {
+      if(numberOfStudents < 1)
       {
-         System.out.println(s.getName() + " is not in the course.");
+         throw new CourseException(courseName + " has no students.");
+      }
+      else if(!search(s.getStudentId()))
+      {
+         throw new StudentException(s.getName() + " is not in the course.");
       }
       else
       {
-         for(int i = 0; i < maxStudents; i++)
+         int i;
+         for(i = 0; i < numberOfStudents; i++)
          {
             if(registeredStudents[i].getStudentId() == s.getStudentId())
             {
                registeredStudents[i] = null;
-               break; // no need to go further looking becasue id is unique
+               break; // no need to go further looking because id is unique
             }
          }
+         while(i < (numberOfStudents - 1) && registeredStudents[i + 1] != null)
+         {
+            // swap current null student and next student
+            Student nextStudent = registeredStudents[i + 1];
+            registeredStudents[i + 1] = registeredStudents[i];
+            registeredStudents[i] = nextStudent;
+            i++;
+         }
+         numberOfStudents--;
       }
    }
    /*- A method that will allow Course objects to be output to a file using
-object serializatio
+object serialization
 */
    public static void outputTo(String pathToFile, Course course)
    {
@@ -113,7 +131,7 @@ object serializatio
       }
    }
    /*- A method that will allow Course objects to be read in from a file created
-with Object serializtion*/
+with Object serialization */
    public static Course readFrom(String pathToFile)
    {
       Course course = null;

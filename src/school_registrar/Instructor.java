@@ -1,3 +1,5 @@
+package school_registrar;
+
 import java.io.Serializable;
 public class Instructor  implements Serializable{
    private String instructorName;

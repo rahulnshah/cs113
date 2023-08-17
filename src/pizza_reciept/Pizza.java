@@ -1,3 +1,5 @@
+package pizza_reciept;
+
 public class Pizza extends FastFood{
 
    private double pizzaRadius;
@@ -6,7 +8,7 @@ public class Pizza extends FastFood{
   
    public Pizza(double pizzaRadius, String topping)
    {
-      super("Pizza");
+      super("pizza_reciept.Pizza");
       this.pizzaRadius = pizzaRadius;
       this.topping = topping;
    }
