@@ -7,7 +7,7 @@ public class Course implements Serializable{
    private int maxStudents; 
    private Instructor instructor;
    private int numberOfStudents;
-   public Student [] registeredStudents;
+   private Student [] registeredStudents;
    
    public Course(String courseName, int registrationCode)
    {
